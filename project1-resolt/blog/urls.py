@@ -5,7 +5,7 @@ urlpatterns = patterns('',
                        url(r'^blog/$',
                            views.blog,
                            name='blog'),
-                       url(r'^post/([0-9]+)$',
+                       url(r'^post/(?P<post_id>([0-9]+))$',
                            views.post,
                            name='post'),
                        )
