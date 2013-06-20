@@ -9,7 +9,7 @@ POST {{ post.title }}
   <h3>{{ post.title }}</h3>
   <span>{{ post.published_at }}</span>
   <p>
-    {{ post.body }}
+    {{ post.body | safe }}
   </p>
   {% for link in links %}
   {% if forloop.first %}
