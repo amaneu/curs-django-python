@@ -66,4 +66,4 @@ class LatestEntriesFeed(Feed):
         return item.short_body
 
     def item_link(self, item):
-        return u"http://localhost:8000" + reverse('post', args=[item.id])
+        return reverse('post', args=[item.id])
