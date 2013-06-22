@@ -2,6 +2,8 @@
 from django.db import models
 from django.utils.timezone import utc
 import datetime
+from django.contrib.syndication.views import Feed
+from django.core.urlresolvers import reverse
 
 class Post(models.Model):
     # Relations
@@ -48,3 +50,20 @@ class Link(models.Model):
 
     class Meta:
         ordering = ["name"]
+
+class LatestEntriesFeed(Feed):
+    title = u"Feed de posts del blog"
+    link = u"/blabal"
+    description = u"Això és un exemple de feed RSS de posts del blog"
+
+    def items(self):
+        return Post.objects.order_by('-published_at')[:5]
+
+    def item_title(self, item):
+        return item.title
+
+    def item_description(self, item):
+        return item.short_body
+
+    def item_link(self, item):
+        return u"http://localhost:8000" + reverse('post', args=[item.id])

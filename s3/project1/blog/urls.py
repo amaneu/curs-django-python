@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
 from blog import views
+from models import LatestEntriesFeed
 
 urlpatterns = patterns('',
                        url(r'^blog/$',
@@ -8,4 +9,5 @@ urlpatterns = patterns('',
                        url(r'^post/([0-9]+)$',
                            views.post,
                            name='post'),
+                       url(r'^feed$', LatestEntriesFeed()),                                              
                        )
