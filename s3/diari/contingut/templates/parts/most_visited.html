@@ -3,7 +3,7 @@
   <ul>
     {% for ar in articles %}
     <li>
-      <a href="{{ ar.uri }}">
+      <a href="{% url 'article_detail' ar.slug %}">
         {{ ar.title }}
       </a>
     </li>

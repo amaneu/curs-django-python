@@ -14,7 +14,7 @@ class Category(models.Model):
                                blank = True,
                                null = True,
                                related_name = "children",
-                               verbose_name = u"parent")
+                                verbose_name = u"parent")
     # Attributes
     name = models.CharField(max_length = 100,
                             verbose_name = u"name")
