@@ -51,6 +51,12 @@ class Link(models.Model):
     class Meta:
         ordering = ["name"]
 
+class BlogStats(models.Model):
+    num_requests = models.IntegerField(default = 0)
+
+    class Meta:
+        pass
+
 class LatestEntriesFeed(Feed):
     title = u"Feed de posts del blog"
     link = u"/blabal"
